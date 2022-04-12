@@ -19,7 +19,7 @@ class Weather {
 
         let responseData = await response.json();
         
-        return responseData.main;
+        return responseData;
     }
     
 }

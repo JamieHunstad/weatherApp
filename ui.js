@@ -1,6 +1,6 @@
 
 let kelvinConverter = (kelvin) =>{
-    let farenheight = (kelvin - 273.15) * 9/5 +32;
+    let farenheight = Math.floor((kelvin - 273.15) * 9/5 +32);
     return farenheight;
  }
 
@@ -10,11 +10,12 @@ class Ui{
         this.state = myLocation.state;
     }
     newUi(dataObject){
-        let tempK = dataObject.temp;
-        let feelsLikeK = dataObject.feels_like;
-        let minK = dataObject.temp_min;
-        let maxK = dataObject.temp_max;
-        let humidity = dataObject.humidity;
+        let tempK = dataObject.main.temp;
+        let feelsLikeK = dataObject.main.feels_like;
+        let minK = dataObject.main.temp_min;
+        let maxK = dataObject.main.temp_max;
+        let humidity = dataObject.main.humidity;
+        let description = dataObject.weather[0].description;
 
         let tempF = kelvinConverter(tempK);
         let feelsLikeF = kelvinConverter(feelsLikeK);
@@ -25,19 +26,19 @@ class Ui{
         wrapper.innerHTML = `
             <h3 id="location">${this.city}, ${this.state}</h3>
             <img src="weatherAssets/clear-cloudy.png" id="icon">
-            <h2 id="weatherType">Partly Cloudy</h2>
-            <h1 id="weatherTemp">${tempF}</h1>
+            <h2 id="weatherType">${description}</h2>
+            <h1 id="weatherTemp">${tempF}&deg;</h1>
             <div class="weatherInfo">
                 <p>Relative Humidity: ${humidity}</p>
             </div>
             <div class="weatherInfo">
-                <p>Min Temp: ${minF}</p>
+                <p>Min Temp: ${minF}&deg;</p>
             </div>
             <div class="weatherInfo">
-                <p>Max Temp: ${maxF}</p>
+                <p>Max Temp: ${maxF}&deg;</p>
             </div>
             <div class="weatherInfo">
-                <p>Feels Like: ${feelsLikeF}</p>
+                <p>Feels Like: ${feelsLikeF}&deg;</p>
             </div>
             <button id="submitBtn">Change Location</button>
         `
