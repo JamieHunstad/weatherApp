@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", getNewWeather(weather));
 function getNewWeather(location){
 location.getWeatherGeo()
     .then(dataGeo =>{
-        /* Gets Geo Location */
         weather.getWeather(dataGeo[0].lat, dataGeo[0].lon)
         .then(data =>{
             let ui = new Ui(dataGeo[0]);

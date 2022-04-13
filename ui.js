@@ -5,7 +5,7 @@ let kelvinConverter = (kelvin) =>{
     return farenheight;
  }
 
- //Add Switch statement here for images
+ // Image Picker
 let imagePicker = (thisWeatherType) => {
     switch (thisWeatherType) {
     case 'Clear':

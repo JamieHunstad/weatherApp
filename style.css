@@ -78,6 +78,10 @@ p{
     border: none;
     border-radius: 5px;
 }
+#submitBtn:hover{
+    background-color: #da7236;
+    cursor: pointer;
+}
 
 #modalWrapper{
     position: absolute;
@@ -164,5 +168,8 @@ p{
     color: white;
     border-radius: 5px;
     font-family: var(--mainText);
+}
+#submit:hover{
+    background-color: #da7236;
     cursor: pointer;
 }
