@@ -1,11 +1,12 @@
-let weather = new Weather("Robins", "IA");
+let weather = new Weather("Kenosha", "WI");
 
 document.addEventListener("DOMContentLoaded", getNewWeather(weather));
 
 
-function getNewWeather(abc){
-abc.getWeatherGeo()
+function getNewWeather(location){
+location.getWeatherGeo()
     .then(dataGeo =>{
+        /* Gets Geo Location */
         weather.getWeather(dataGeo[0].lat, dataGeo[0].lon)
         .then(data =>{
             let ui = new Ui(dataGeo[0]);
